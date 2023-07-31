@@ -1,0 +1,253 @@
+.blog {
+    @extend %of-hidden;
+
+    .section-header {
+        h3 {
+            max-inline-size: 36ch;
+        }
+    }
+
+    &__item {
+        &:hover {
+            .blog__thumb {
+                img {
+                    @include add-prefix(transform, scale(1.1));
+                }
+            }
+        }
+    }
+
+    &__thumb {
+        @extend %mb-20,
+        %p-rel,
+        %of-hidden;
+        
+        img {
+            @extend %w-100;
+            @include add-prefix(transition, all .3s linear);
+        }
+    }
+
+    &__content {
+
+        h4 {
+            @extend %mb-15,
+            %text-clamp-1;
+            color: $title-color;
+
+            a {
+                color: inherit;
+                @include add-prefix(transition, all .2s linear);
+            }
+
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+
+    &__tags {
+        @extend %flex,
+        %mb-10;
+
+        &-item {
+            color: $theme-color;
+        }
+    }
+
+
+    &__date {
+        @extend %p-abs,
+        %p-10;
+        @include box(60px);
+        @include bg-blur(10px, rgba($primary-color, $alpha:.4));
+        top: 20px;
+        left: 20px;
+        display: grid;
+        place-content: center;
+        border-radius: 5px;
+
+        h4 {
+            @extend %mb-5;
+            line-height: 1;
+            color: $white-color;
+        }
+
+        p {
+            @extend %mb-0;
+            line-height: 1;
+            color: $theme-color;
+        }
+    }
+}
+
+
+.pagination {
+    gap: 10px;
+}
+
+.page-link {
+    border-radius: 5px;
+    background-color: $secondary-color;
+    color: $title-color;
+    box-shadow: none;
+
+    &:hover {
+        background-color: $theme-color;
+        color: $white-color;
+    }
+}
+
+//blog single page
+.news {
+
+
+    &__item-thumb {
+        @extend %of-hidden;
+        margin-block-end: 20px;
+
+        img {
+            @include add-prefix(transition, $transition);
+            @extend %w-100;
+        }
+    }
+
+    &__item-content {
+        padding: 0 20px 20px;
+
+        h6,
+        h4 {
+            a {
+                color: $title-color;
+                @include add-prefix(transition, $transition);
+            }
+        }
+
+        >p {
+            line-height: 1.6;
+        }
+
+        blockquote {
+            background-color: $theme-color;
+            padding-block: 1.5rem;
+            border-radius: .5rem;
+
+            p {
+                @extend %mb-0;
+                border-radius: .35rem;
+                border-left: 4px solid $white-color;
+                padding-inline-start: 15px;
+                max-inline-size: 85%;
+                margin-inline-start: 15px;
+                color: $white-color;
+            }
+        }
+    }
+
+
+
+    &__tags {
+        gap: 10px;
+        margin-block-end: 10px;
+    }
+
+    &__meta {
+        gap: 15px;
+    }
+
+    &__author {
+        @extend %p-rel;
+
+        &:after {
+            @extend %p-abs;
+            content: ",";
+            right: -7px;
+        }
+    }
+
+    &__item {
+        @extend %of-hidden;
+        background-color: $body-color;
+        border-radius: .5rem;
+        @include add-prefix(transition, $transition);
+
+        &:hover {
+
+            .news__item-thumb {
+                img {
+                    @include add-prefix(transform, scale(1.05));
+                }
+            }
+
+            .news__item-content {
+                h6 {
+                    a {
+                        color: $theme-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.blog-page {
+    .pagination {
+        gap: 10px;
+    }
+
+    .page-link {
+        border-radius: 5px;
+        background-color: $secondary-color;
+        color: $title-color;
+        box-shadow: none;
+
+        &:hover {
+            background-color: $theme-color;
+        }
+    }
+}
+
+//comment
+.comment {
+    &__title {
+        @extend %mb-30;
+
+        @include breakpoint(lg) {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__form {
+
+        input,
+        textarea {
+            @include add-prefix(transition, $transition);
+            @extend %w-100;
+            background-color: $body-color;
+            box-shadow: none;
+            outline: none;
+            padding: 1.25rem;
+            border: 1px solid rgba($theme-color, $alpha: .15);
+            border-radius: .35rem;
+
+            &:focus {
+                border-color: $theme-color;
+            }
+        }
+
+        textarea {
+            min-block-size: 250px;
+        }
+
+        .default-btn {
+            @extend %w-100;
+            display: block;
+            border: none;
+            outline: none;
+
+            span {
+                color: $white-color;
+            }
+        }
+    }
+}

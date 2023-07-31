@@ -1,0 +1,97 @@
+.pricing {
+    @extend %of-hidden;
+
+    &__item {
+        @extend %of-hidden;
+        @include add-prefix(transition, all 0.3s ease-in-out);
+        background-color: $body-color;
+        border-radius: .5rem;
+        border: 1px solid transparent;
+
+        &:hover,
+        &.active {
+            @include add-prefix(transform, translateY(-7px));
+            background-color: $white-color;
+            box-shadow: 0 5px 10px rgba($primary-color, $alpha: .15);
+            border-color: rgba($theme-color, $alpha: .5);
+        }
+    }
+
+    &__inner {
+        @extend %p-40;
+        @extend %p-rel;
+        // background-image: url(../images/pricing/1.svg);
+        // background-repeat: no-repeat;
+
+        .package-tag {
+            background-image: url(../images/pricing/3.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            @extend %d-inline-block,
+            %p-abs;
+            min-inline-size: 190px;
+            padding-block: 1rem;
+            padding-inline-end: 1rem;
+            text-align: start;
+            top: 70px;
+            left: 0;
+            z-index: 1;
+            h6{
+                color: $white-color;
+                margin: 10px 20px;
+                
+                
+            }
+
+
+        }
+    }
+
+    &__thumb {
+        @extend %of-hidden;
+        @extend %p-rel;
+        @extend %mb-50;
+
+
+        .price-tag {
+            @include box(135px);
+            background-image: url(../images/pricing/2.svg);
+            background-size: 100% 100%;
+            display: grid;
+            place-items: center;
+            margin-inline-start: auto;
+
+            h4 {
+                color: $primary-color;
+            }
+        }
+    }
+
+    &__content {
+        .default-btn {
+            margin: auto;
+        }
+    }
+
+    &__list {
+        @extend %mb-40;
+        @extend %p-rel;
+        z-index: 1;
+
+        &-item {
+            span {
+                @extend %mr-10;
+
+                svg {
+                    color: $primary-color;
+                }
+            }
+
+            &:not(:last-child) {
+                margin-block-end: 10px;
+            }
+
+
+        }
+    }
+}

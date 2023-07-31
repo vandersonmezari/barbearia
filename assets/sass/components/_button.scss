@@ -1,0 +1,133 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+//default button style
+.default-btn {
+    @extend %p-rel,
+    %d-inline-block,
+    %text-center,
+    %text-bold;
+    @include font-size(16px);
+    font-family: $text-font;
+    color: $white-color;
+    padding: 0 1.7rem;
+    line-height: 50px;
+    transition: $transition;
+    background: $theme-color;
+    border-radius: 4px;
+
+
+    @include breakpoint(md) {
+        padding: 0 2rem;
+        line-height: 56px;
+    }
+
+    span {
+        text-transform: capitalize;
+
+        svg {
+            @extend %ml-5;
+            @include add-prefix(transition, $transition);
+        }
+    }
+
+    &--small {
+        @include font-size(14px);
+        line-height: 46px;
+        padding: 0 1.25rem;
+
+    }
+
+
+
+
+    &--rounded {
+        border-radius: 99px;
+    }
+
+    @include hover {
+        color: $white-color;
+        transform: translateY(-3px);
+        background: $primary-color;
+
+        svg {
+            @include add-prefix(transform, translateX(5px));
+        }
+    }
+
+    &--style-2 {
+        background-color: $primary-color;
+        color: $white-color;
+
+        @include hover {
+            background-color: $theme-color;
+            color: $white-color;
+
+            svg {
+                path {
+                    fill: $white-color;
+                }
+
+            }
+        }
+    }
+
+    &--outlined {
+        background-color: transparent;
+        border: 1px solid $theme-color;
+        color: $theme-color;
+
+        span {
+            svg {
+                path {
+                    fill: $theme-color;
+                }
+            }
+        }
+
+        &:hover {
+            background-color: $theme-color;
+            color: $title-color;
+
+            span {
+                svg {
+                    path {
+                        fill: $title-color;
+                    }
+                }
+            }
+        }
+    }
+
+
+    &.active {
+        background: $primary-color;
+    }
+}
+
+//text button 
+.text-btn {
+    display: inline-block;
+    color: $primary-color;
+    font-weight: bold;
+    @include add-prefix(transition, $transition);
+
+    @include breakpoint(lg) {
+        @include font-size(18px);
+    }
+
+    svg {
+        @extend %ml-5;
+        @include add-prefix(transition, $transition);
+        vertical-align: middle;
+    }
+
+    &:hover {
+        color: $theme-color;
+
+        svg {
+            @include add-prefix(transform, translateX(5px));
+        }
+    }
+}

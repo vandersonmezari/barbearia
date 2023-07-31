@@ -1,0 +1,191 @@
+.service {
+    @extend %of-hidden;
+
+
+    &--shape {
+        @extend %p-rel;
+
+        @include breakpoint(lg) {
+            &:before {
+                @include add-prefix(transform, translateX(-50%));
+                position: absolute;
+                content: "";
+                background-image: url(../images/service/shape1.svg);
+                background-size: 100% 100%;
+                width: 260px;
+                height: 150px;
+                top: 0;
+                left: 50%;
+                opacity: .1;
+            }
+
+            &:after {
+                position: absolute;
+                content: "";
+                background-image: url(../images/service/shape2.svg);
+                background-size: 100% 100%;
+                width: 150px;
+                height: 180px;
+                bottom: -1;
+                right: 0;
+                opacity: .1;
+            }
+        }
+
+        @include breakpoint(xxl) {
+            &:before {
+                width: 325px;
+                height: 175px;
+
+            }
+
+            &::after {
+                width: 170px;
+                height: 200px;
+            }
+        }
+
+    }
+
+    &__item {
+        @include hover {
+
+            .service__inner {
+                @include add-prefix(transform, scale(1.01));
+                background-color: $white-color;
+                border-color: $theme-color;
+                box-shadow: 0 5px 5px rgba($theme-color, $alpha: .2);
+            }
+
+            .service__thumb {
+                img {
+                    transform: scale(1.08);
+                }
+            }
+        }
+
+    }
+
+    &__inner {
+        @include add-prefix(transition, $transition);
+        background-color: rgba($white-color, $alpha: .5);
+        border: 1px solid rgba($theme-color, $alpha: .2);
+        border-radius: .5rem;
+        padding: 2rem 1.5rem;
+    }
+
+    &__thumb {
+        @extend %mb-15;
+
+        img {
+            @include add-prefix(transition, $transition);
+        }
+    }
+
+    &__content {
+        h4 {
+            a {
+                @include add-prefix(transition, $transition);
+                color: $title-color;
+            }
+
+            &:hover {
+                a {
+                    color: $theme-color;
+                }
+            }
+        }
+
+        p {
+            @extend %mb-0;
+        }
+    }
+
+    &__single {
+        &-slider {
+            @extend %p-rel;
+
+            &:after {
+
+                @extend %p-abs;
+                @include box(130px);
+                background-image: url(../images/service/single/slider/razor.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            .swiper-slide {
+                @extend %of-hidden;
+                clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 99%, 0 25%);
+            }
+        }
+
+        &-img {
+            img {
+                @extend %w-100;
+            }
+        }
+    }
+
+    &__nav {
+        @extend %p-abs;
+        gap: 10px;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1;
+
+    }
+
+    &__slide {
+
+
+        &-next,
+        &-prev {
+            @extend %justify-center;
+            @extend %align-items-center;
+            @include box(50px);
+            @include add-prefix(transition, $transition);
+            display: inline-flex;
+            background-color: $theme-color;
+            border-radius: 10px;
+
+            svg {
+                color: $white-color;
+            }
+        }
+
+        &-next {
+            background-color: $primary-color;
+        }
+    }
+}
+
+
+//aminites item
+
+.aminities {
+
+    &__item {
+        gap: 15px;
+
+        &:not(:last-child) {
+            @extend %mb-30;
+        }
+
+        &-thumb {
+            @include box(30px);
+            @include add-prefix(transform, $transition);
+            display: grid;
+            place-items: center;
+            border-radius: 5px;
+        }
+
+        &-content {
+            color: $title-color;
+            font-weight: 600;
+        }
+    }
+}

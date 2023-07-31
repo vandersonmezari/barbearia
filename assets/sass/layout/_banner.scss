@@ -1,0 +1,178 @@
+.banner {
+    @extend %p-rel;
+    @extend %of-hidden;
+    padding-block-start: 190px;
+    background-color: $body-color;
+
+    @include breakpoint(lg) {
+        padding-block-end: 190px;
+    }
+
+    @include breakpoint(xl) {
+        padding-block-start: 300px;
+        padding-block-end: 250px
+    }
+
+    @include breakpoint(xxl) {
+        padding-block: 300px;
+    }
+
+    &__circle {
+        @include breakpoint(xl) {
+            @include box(650px);
+            background-image: url(../images/banner/shape/3.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: .3;
+            position: absolute;
+            right: -50px;
+            bottom: 16%;
+            border-radius: 50%;
+            z-index: 0;
+            @include animation(rotate 20s ease-in-out infinite forwards alternate);
+        }
+
+        @include breakpoint(xxxl) {
+            @include box(700px);
+            right: 10%;
+            bottom: 15%;
+        }
+
+    }
+
+
+    &__content {
+        .title-label {
+            @extend %mb-15;
+        }
+
+        h2 {
+            @extend %mb-30;
+            color: $white-color;
+
+            span {
+                color: $theme-color;
+            }
+        }
+
+        p {
+            @extend %mb-30;
+            @include font-size(20px);
+            max-inline-size: 55ch;
+            color: $light-color;
+        }
+
+        .button-list {
+            gap: 20px;
+        }
+
+        .video-btn {
+            @extend %align-items-center;
+            font-weight: 700;
+            color: $white-color;
+            display: inline-flex;
+            gap: 10px;
+
+            @include hover {
+                color: $theme-color;
+            }
+        }
+    }
+
+    &__thumb {
+        @extend %p-rel,
+        %text-center;
+        z-index: 1;
+
+        img {
+            display: inherit;
+            margin-block-start: auto;
+            margin-inline: auto;
+        }
+
+        @include breakpoint(lg) {
+            position: absolute;
+            bottom: 0;
+            z-index: 1;
+        }
+    }
+
+    &--style1 {
+        @extend %of-hidden;
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 95%);
+    }
+
+    &--style2 {
+        @extend %p-rel;
+        background-size: cover;
+        clip-path: polygon(50% 0%, 100% 0, 100% 95%, 85% 100%, 0 95%, 0% 60%, 0 0);
+        padding-block-start: 150px;
+
+        @include breakpoint(lg) {
+            padding-block-end: 0;
+        }
+
+        @include breakpoint(xl) {
+            padding-block-start: 150px;
+        }
+
+        @include breakpoint(xxl) {
+            padding-block: 300px;
+        }
+
+        &:before {
+            @extend %p-abs;
+            background-image: url(../images/banner/shape/1.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 100%;
+            top: 48%;
+            left: 0;
+            width: 300px;
+
+            @include breakpoint(sm) {
+                width: 400px;
+                top: 35%;
+            }
+
+            @include breakpoint(md) {
+                width: 500px;
+            }
+
+            @include breakpoint(lg) {
+                width: 450px;
+                top: 5%;
+            }
+
+            @include breakpoint(xl) {
+                width: 450px;
+                top: 10%;
+            }
+
+            @include breakpoint(xxl) {
+                width: 700px;
+                top: 5%;
+            }
+        }
+
+        .banner__thumb {
+            @include breakpoint(lg) {
+                position: relative;
+            }
+
+            @include breakpoint(xxl) {
+                position: absolute;
+                bottom: 0;
+                z-index: 1;
+            }
+        }
+
+        .banner__content {
+            >p {
+                max-inline-size: 50ch;
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,171 @@
+.appointment {
+    @extend %of-hidden;
+    background-size: cover;
+    color: $white-color;
+
+
+
+    &__form {
+        @extend %mt-40;
+
+        input,
+        select,
+        textarea {
+            padding: 1.1rem;
+            color: $text-color;
+            border-radius: 5px;
+            background-color: rgba($white-color, $alpha: 1.0);
+
+            &:focus {
+                box-shadow: none;
+                border-color: $primary-color;
+            }
+        }
+
+        textarea {
+            @extend %w-100;
+            min-height: 150px;
+            border: none;
+
+            &:focus {
+                border: 1px solid rgba($primary-color, $alpha: 1.0);
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        button {
+            border: none;
+            border-radius: 5px;
+            background-color: $primary-color;
+            color: $white-color;
+            padding: 1.4rem;
+            font-weight: 700;
+            margin-top: 40px;
+            @include add-prefix(transition, $transition);
+
+            &:hover {
+                @include add-prefix(transform, translateY(-3px));
+            }
+
+        }
+
+        &-wrapper {
+            @extend %p-rel;
+            background-color: $theme-color;
+            text-align: center;
+            z-index: 1;
+            padding: 50px 25px;
+            clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+
+            h3 {
+                color: $white-color;
+
+            }
+
+            @include breakpoint(md) {
+                padding: 75px 60px;
+
+                @include breakpoint(max-xl) {
+                    padding: 50px 40px;
+                }
+            }
+
+        }
+    }
+
+    &__content {
+
+
+        h3 {
+            color: $white-color;
+            @extend %mb-25;
+        }
+
+        >p {
+            max-inline-size: 55ch;
+        }
+    }
+
+    &__open {
+        @extend %mt-35,
+        %mb-40;
+
+        h4 {
+            @extend %mb-20,
+            %flex,
+            %align-items-center;
+            gap: 10px;
+            color: $white-color;
+
+            span {
+                @include box(40px);
+                display: inline-grid;
+                place-items: center;
+                background-color: $theme-color;
+                color: $white-color;
+                border-radius: 5px;
+            }
+        }
+
+        strong {
+            @include font-size(18px);
+            color: $title-color;
+        }
+
+        &-list {
+            @extend %mb-25;
+            max-inline-size: 360px;
+            border: 1px solid rgba($theme-color, $alpha:.4);
+            border-radius: 5px;
+        }
+
+        &-item {
+            @extend %flex;
+            padding: .75rem 1rem;
+
+            span {
+                &:first-child {
+                    @extend %p-rel;
+                    min-width: 60%;
+
+                    &::after {
+                        @extend %p-abs,
+                        %mr-10;
+                        content: ":";
+                        right: 0;
+                    }
+                }
+            }
+
+            &:not(:last-child) {
+                border-bottom: 1px solid rgba($theme-color, $alpha:.4);
+            }
+        }
+    }
+
+    &__location {
+        h4 {
+            @extend %mb-20,
+            %flex,
+            %align-items-center;
+            color: $white-color;
+            gap: 10px;
+
+            span {
+                @include box(40px);
+                display: inline-grid;
+                place-items: center;
+                background-color: $theme-color;
+                color: $white-color;
+                border-radius: 5px;
+            }
+        }
+
+        &-content {
+            p {
+                @include font-size(18px);
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.countdown {
+    @extend %flex;
+    gap: 14px;
+
+    @include breakpoint(lg) {
+        gap: 30px;
+    }
+
+
+    &__item {
+        @extend %text-center,
+        %p-10;
+        border: 1px solid rgba($primary-color, $alpha: .90);
+        min-inline-size: calc(50px + 3vw);
+        border-radius: .5rem;
+    }
+
+    &__text {
+        @extend %mb-0;
+        font-weight: 600;
+    }
+}

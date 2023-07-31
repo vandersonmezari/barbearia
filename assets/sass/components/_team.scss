@@ -1,0 +1,74 @@
+.team {
+    @extend %of-hidden;
+
+    &__item {
+        &-thumb {
+            @extend %p-rel,
+            %of-hidden;
+            border-radius: .5rem;
+
+            img {
+                @include add-prefix(transition, $transition);
+                @extend %w-100;
+                object-fit: cover;
+            }
+
+            &::after {
+                @extend %p-abs;
+                @include add-prefix(transform, translateX(-50%));
+                @include box(180px, 65px);
+                background-color: $primary-color;
+                background-size: cover;
+                bottom: 5px;
+                left: 50%;
+                z-index: 1;
+                opacity: .9;
+            }
+
+        }
+
+        &-content {
+            @extend %p-abs,
+            %w-100,
+            %text-center,
+            %p-10;
+            @include bg-blur(10px, #c4c4c41a);
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+
+            h4 {
+                @extend %mb-0;
+
+                a {
+                    @include add-prefix(transition, $transition);
+                    color: $white-color;
+                }
+            }
+
+            p {
+                @extend %mb-5,
+                %text-uppercase;
+                @include font-size(14px);
+                font-weight: 600;
+                color: $white-color;
+            }
+        }
+
+        &:hover {
+            .team__item {
+                &-thumb {
+                    img {
+                        @include add-prefix(transform, scale(1.1));
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        h3 {
+            @extend %mb-15;
+        }
+    }
+}

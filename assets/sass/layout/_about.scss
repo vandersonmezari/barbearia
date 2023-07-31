@@ -1,0 +1,50 @@
+.about {
+    @extend %of-hidden;
+
+    &__thumb {
+        @extend %text-center;
+    }
+
+    &__content {
+        h6 {
+            text-transform: uppercase;
+            border-left: 4px solid $theme-color;
+            padding: .25rem .75rem;
+            margin-bottom: 20px;
+        }
+
+        >p {
+            @include font-size(18px);
+            margin-bottom: 30px;
+
+        }
+    }
+
+}
+
+.counter {
+    &__list {
+        @extend %mb-40;
+        gap: 20px;
+        padding-inline: 10px;
+
+        @include breakpoint(sm) {
+            @include breakpoint(max-lg) {
+                padding-inline: 30px;
+            }
+
+        }
+
+    }
+
+    &__item {
+        @extend %text-center;
+        @extend %p-rel;
+
+
+        p {
+            color: $title-color;
+            font-weight: 700;
+        }
+    }
+}

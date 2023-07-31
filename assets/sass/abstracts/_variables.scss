@@ -1,0 +1,83 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+$bootstrap-sass-asset-helper: false !default;
+//
+// Variables
+// --------------------------------------------------
+
+
+// Colors
+
+$title-color:#2b0909;
+// $theme-color: #93780f;
+$theme-color: #a47c04;
+$primary-color:#6b1904;
+$secondary-color:#061529;
+$border-color: #ABABAB;
+$white-color: #fff;
+$ash-color: #2F3D5F;
+$body-color: #FEF9F6;
+// $section-color:#FFF6E9;
+$section-color:#fff6d8;
+$black-color:#000000;
+$text-color:#604C4C;
+$dark-color:#191919;
+$light-color:#c4afaa;
+
+
+$gradient-theme: linear-gradient(150deg, rgba(0, 128, 255, 1) 0%, rgba(58, 100, 215, 1) 100%);
+
+
+
+// social-media color
+$facebook: #3b5998;
+$twitter: #55acee;
+$linkedin: #007bb5;
+$skype: #2fb7df;
+$youtube: #cd201f;
+$google: #dd4b39;
+$camera: #e4405f;
+$instagram: #e4405f;
+$tumblr: #34465d;
+$behance: #1769ff;
+$star: #e9ba17;
+$green: #0be881;
+$green-h: #0fbcf9;
+$red: #f53b57;
+$yellow: #dec32b;
+$nell: #212fb4;
+$navy: #d8e0f3;
+$placeholder: #a0a6bc;
+
+//== Typography
+
+// font-family
+
+$text-font: 'Roboto',
+sans-serif;
+
+$title-font: 'Alexandria',
+sans-serif;
+
+
+// font-size
+
+$fs-base: 16px !default;
+$fs-small:14px;
+$fs-h1: 64px;
+$fs-h2: 56px;
+$fs-h3: 36px;
+$fs-h4: 24px;
+$fs-h5: 20px;
+$fs-h6: 18px;
+
+
+
+//  transition
+$transition: all 0.3s ease;
+
+
+//box shadow
+$shadow-sm:0 0 10px -2px rgba($black-color, $alpha:.1);

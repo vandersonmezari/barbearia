@@ -1,0 +1,23 @@
+// all slider pagination style
+.swiper-pagination-bullet {
+    @include box(15px);
+    background-color: $theme-color;
+    border-radius: 5px;
+}
+
+
+//default-bootstrap's input field
+
+.form-control {
+    padding: 0.75rem 1rem;
+    border-color: rgba($theme-color, $alpha: .3);
+
+    &::placeholder {
+        color: rgba($text-color, $alpha: .5);
+    }
+
+    &:focus {
+        border-color: $theme-color;
+        box-shadow: none;
+    }
+}

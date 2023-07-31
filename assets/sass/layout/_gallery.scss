@@ -1,0 +1,73 @@
+//--- gallery component css start here
+.gallery {
+    &__item-inner {
+        @extend %p-rel,
+        %of-hidden;
+        display: block;
+        border-radius: 10px;
+
+        &:after {
+            @extend %p-abs;
+            @extend %w-100;
+            @extend %h-100;
+            left: 0;
+            bottom: 0;
+            background: linear-gradient(0deg, rgba($title-color, $alpha:.9) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+    }
+
+    &__item-thumb {
+        @extend %of-hidden;
+
+        img {
+            @extend %w-100;
+            @include add-prefix(transition, .3s linear);
+            object-fit: cover;
+        }
+    }
+
+    &__item-content {
+        @extend %p-abs;
+        width: 90%;
+        bottom: 5%;
+        left: 50%;
+        @include add-prefix(transform, translateX(-50%));
+        z-index: 1;
+
+        h2 {
+            display: none;
+            // opacity: .1;
+            // @include add-prefix(transition, .3s linear);
+        }
+    }
+
+    &__item {
+        &-details {
+            h5 {
+                color: $theme-color;
+            }
+        }
+
+        &:hover {
+            .gallery__item-thumb {
+                img {
+                    @include add-prefix(transform, scale(1.1));
+                }
+            }
+        }
+
+        &--style-2 {
+            .gallery__item-inner {
+                &::after {
+                    background: transparent;
+                }
+            }
+
+            .gallery__item-content {
+                background-color: rgba($black-color, $alpha: .90);
+                @extend %p-20;
+                border-radius: 3px;
+            }
+        }
+    }
+}

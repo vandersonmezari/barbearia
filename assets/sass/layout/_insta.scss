@@ -1,0 +1,57 @@
+.insta {
+    @extend %of-hidden;
+
+    &__item {
+        @extend %p-rel;
+        @extend %of-hidden;
+        clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+
+        &:hover {
+            .insta {
+                &__thumb {
+                    img {
+                        @include add-prefix(transform, scale(1.2));
+                    }
+                }
+
+                &__content {
+                    @include add-prefix(transform, scale(1));
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__thumb {
+        img {
+            @extend %w-100;
+            @include add-prefix(transition, $transition);
+        }
+    }
+
+    &__content {
+        @extend %text-center,
+        %p-abs,
+        %w-100,
+        %h-100;
+        @include bg-blur(10px, rgba($theme-color, $alpha:.8));
+        @include add-prefix(transition, $transition);
+        @include add-prefix(transform, scale(.5));
+        display: grid;
+        place-content: center;
+        color: $white-color;
+        padding: 1rem;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+
+        svg {
+            @include font-size(30px);
+        }
+
+        a {
+            display: block;
+            color: $white-color;
+        }
+    }
+}

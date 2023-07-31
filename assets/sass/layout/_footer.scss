@@ -1,0 +1,134 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+
+.footer {
+    @extend %of-hidden;
+    background-image: url(../images/footer/bg.png);
+    background-size: cover;
+    background-position: center;
+    color: $light-color;
+
+
+    &__wrapper {
+        @extend %of-hidden;
+    }
+
+
+    &__about {
+        @extend %p-rel;
+        z-index: 1;
+
+        >a {
+            @extend %mb-40;
+            @extend %d-inline-block;
+
+        }
+
+        .social {
+            @extend %mt-40;
+            @extend %p-rel;
+
+            &:after {
+                @extend %p-abs;
+                width: 100%;
+                max-inline-size: 80%;
+                height: 1px;
+                background-color: $border-color;
+                top: -40px;
+                left: 0;
+            }
+        }
+    }
+
+    &__newsletter {
+        p {
+            &:last-child {
+                @include font-size(14px);
+
+                a {
+                    font-weight: 700;
+                    color: $title-color;
+                    text-decoration: underline;
+                }
+            }
+
+        }
+
+        .input-group {
+            @extend %p-5;
+            border: 1px solid rgba($theme-color, $alpha: .4);
+            border-radius: 5px;
+
+            input {
+                background-color: transparent;
+                border: none;
+                color: $white-color;
+                padding: 1rem 1.25rem;
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                &::placeholder {
+                    color: $border-color;
+                }
+            }
+
+            .default-btn {
+                border: none;
+                border-radius: 3px !important;
+                padding-inline: 1.5rem;
+
+                &:hover {
+                    @include add-prefix(transform, none);
+                }
+            }
+        }
+
+    }
+
+
+
+    &__title {
+        @extend %mb-15;
+
+        h4 {
+            color: $white-color;
+        }
+
+    }
+
+    &__link {
+        &-list {
+            column-count: 2;
+            column-gap: 30px;
+        }
+
+        &-item {
+            &:not(:last-child) {
+                @extend %mb-10;
+            }
+
+            a {
+                @extend %d-inline-block;
+                @include add-prefix(transition, $transition);
+
+                @include hover {
+                    @include add-prefix(transform, translateX(5px));
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        border-top: 1px solid rgba($theme-color, $alpha: .4);
+        padding: 20px;
+
+        p {
+            @extend %text-center,
+            %mb-0;
+        }
+    }
+}

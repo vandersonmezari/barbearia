@@ -1,0 +1,139 @@
+.experience {
+    @extend %of-hidden;
+
+
+    &--shape {
+        @extend %p-rel;
+        background-color: $body-color;
+
+        @include breakpoint(xl) {
+            background-color: initial;
+        }
+
+        &:after {
+            @include breakpoint(xl) {
+                position: absolute;
+                content: "";
+                height: 100%;
+                width: 50%;
+                background-color: $body-color;
+                right: 0;
+                top: 0;
+                z-index: -1;
+            }
+        }
+    }
+
+    &__content {
+        h3 {
+            @extend %mb-30;
+        }
+
+        p {
+            max-inline-size: 55ch;
+        }
+    }
+
+    &__thumb {
+        @extend %p-rel;
+
+        &-main {
+            @extend %p-rel;
+
+            img {
+                @extend %w-100;
+            }
+
+            .video__play {
+                @extend %p-abs;
+                @include add-prefix(transform, translate(-50%, -50%));
+                top: 50%;
+                left: 50%;
+
+                &-inner {
+                    border: 2px solid $white-color;
+                    border-radius: 50%;
+                    @extend %p-rel;
+
+
+                    >svg {
+                        @extend %p-5;
+                        @include box(70px);
+                        background-color: $theme-color;
+                        border-radius: 50%;
+                        animation: rotate 8s linear infinite normal;
+
+                        @include breakpoint(md) {
+                            @include box(90px);
+                        }
+
+                        @include breakpoint(xxl) {
+                            @include box(110px);
+                        }
+
+                        text {
+                            @include font-size(10.8px);
+                            text-transform: uppercase;
+                            font-weight: 700;
+                        }
+                    }
+
+                    span {
+                        @extend %p-abs;
+                        @include add-prefix(transform, translate(-50%, -50%));
+                        top: 50%;
+                        left: 50%;
+
+                        svg {
+                            color: $title-color;
+                            @include font-size(20px);
+                        }
+                    }
+                }
+
+                &:hover {
+                    .video__play-inner {
+                        >svg {
+                            animation-play-state: paused;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include breakpoint(lg) {
+            margin-right: 50px;
+        }
+
+        .position-img {
+            @extend %p-abs;
+            left: 10%;
+            bottom: -30%;
+            max-inline-size: 55%;
+            @include animation(halfRotate 5s linear infinite alternate);
+
+            @include breakpoint(md) {
+                bottom: -15%;
+                max-inline-size: 40%;
+            }
+
+            @include breakpoint(lg) {
+                bottom: -35%;
+                left: -25%;
+                max-inline-size: 70%;
+            }
+
+            @include breakpoint(xl) {
+                max-inline-size: 100%;
+            }
+        }
+
+
+
+
+
+    }
+
+
+
+}

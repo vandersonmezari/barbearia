@@ -1,0 +1,323 @@
+.cart {
+    &__product {
+        @extend %of-hidden,
+        %mb-40;
+        box-shadow: $shadow-sm;
+        border: 1px solid rgba($primary-color, $alpha: .1);
+        border-radius: .35rem;
+
+        @include breakpoint(max-md) {
+            overflow-x: auto;
+        }
+
+        table {
+            @extend %w-100;
+
+            thead {
+                tr {
+                    background-color: $primary-color;
+
+                    th {
+                        color: $white-color;
+                        padding: 18px;
+                        border: none;
+
+                        &:not(:first-child) {
+                            @extend %text-center;
+                        }
+                    }
+                }
+            }
+
+            tbody {
+                background-color: $white-color;
+
+                tr {
+                    &:not(:last-child) {
+                        border-bottom: 1px solid rgba($primary-color, $alpha: .1);
+                    }
+
+                    td {
+                        padding: 20px;
+                        border: none;
+
+                        &:not(:first-child) {
+                            @extend %text-center;
+                        }
+
+                        .cart-plus-minus {
+                            min-inline-size: 130px;
+                            max-inline-size: 140px;
+                            margin-inline: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__item {
+        @extend %flex,
+        %align-items-center;
+        gap: 10px;
+        min-inline-size: 350px;
+
+
+        &-thumb {
+            @extend %of-hidden;
+            border-radius: .4rem;
+            width: 80px;
+        }
+
+        &-content {
+            width: calc(100% - 90px);
+            padding-left: 10px;
+
+            h5 {
+                a {
+                    @include add-prefix(transition, $transition);
+                }
+            }
+        }
+
+        &-price {
+            del {
+                @include font-size(15px);
+            }
+
+            strong {
+                @extend %ml-5;
+                color: $theme-color;
+            }
+        }
+    }
+
+    &__btns {
+        @extend %flex,
+        %align-items-center,
+        %justify-between;
+    }
+
+    &__coupon {
+        @extend %p-20;
+        background-color: $body-color;
+        border-radius: .4rem;
+
+        @include breakpoint(lg) {
+            padding: 25px;
+        }
+
+        &-apply {
+            @extend %text-bold;
+            background-color: $theme-color;
+            color: $white-color;
+            border: none;
+            padding-inline: 1rem;
+            border-radius: .25rem;
+            text-transform: capitalize;
+        }
+    }
+
+    &__total {
+        @extend %p-20;
+        background-color: $body-color;
+        border-radius: .4rem;
+
+        &-item {
+            @extend %flex,
+            %align-items-center,
+            %justify-between;
+
+            &--final {
+                @extend %mt-20;
+
+                p {
+                    @extend %text-bold;
+                    color: $title-color;
+                }
+            }
+
+            p {
+                @extend %mb-0;
+            }
+
+            &:not(:last-child) {
+                @extend %mb-10;
+            }
+        }
+
+        &-name {
+            @extend %p-rel;
+
+            &:after {
+                content: ":";
+            }
+        }
+
+        .default-btn {
+            @extend %mt-30;
+            display: block;
+        }
+    }
+
+    &__payment {
+        h6 {
+            @extend %mb-20;
+        }
+
+        &-list {
+            @extend %flex,
+            %align-items-center;
+            gap: 5px;
+
+            li {
+                flex: 1;
+            }
+        }
+    }
+}
+
+
+//=========checkout page css=========
+.checkout {
+    &__shipping {
+        background-color: $body-color;
+        border-radius: .4rem;
+        box-shadow: 0px 4px 15px rgba($theme-color, $alpha: .07);
+        border: 1px solid rgba($theme-color, $alpha: .2);
+
+        &-title {
+            @extend %p-15;
+            border-bottom: 1px solid rgba($theme-color, $alpha: .3);
+
+            h4 {
+                @extend %mb-0;
+            }
+
+            @include breakpoint(md) {
+                padding: 20px 30px;
+            }
+        }
+
+        &-address {
+            @extend %p-15;
+
+            @include breakpoint(md) {
+                padding: 20px 30px;
+            }
+        }
+    }
+
+    &__billing {
+        @extend .checkout__shipping;
+
+        &-title {
+            @extend .checkout__shipping-title;
+        }
+
+        &-options {
+            @extend %p-15;
+
+            @include breakpoint(md) {
+                padding: 30px;
+            }
+
+            .accordion-item {
+                @extend %of-hidden;
+                background-color: $white-color;
+                border: none;
+                box-shadow: 0 0 5px rgba($primary-color, $alpha: .07);
+                border-radius: .5rem;
+
+                &:not(:last-child) {
+                    @extend %mb-15;
+                }
+            }
+
+            .accordion-button {
+                @extend %flex,
+                %align-items-center,
+                %justify-between;
+                @include add-prefix(transition, .3s border linear .2s);
+                box-shadow: none;
+                border: 2px solid transparent;
+                border-bottom: none;
+                border-top-left-radius: .5rem !important;
+                border-top-right-radius: .5rem !important;
+                color: $text-color;
+
+                h6 {
+                    color: inherit;
+                }
+
+                &::after {
+                    display: none;
+                }
+
+                &:not(.collapsed) {
+                    background-color: $white-color;
+                    border-color: $theme-color;
+                    color: $title-color;
+
+                    .billing-method__radio {
+                        &::after {
+                            background-color: $theme-color;
+                        }
+                    }
+                }
+
+                svg {
+                    @include font-size(24px);
+                }
+            }
+
+            .accordion-collapse {
+                border: 2px solid transparent;
+
+                &.show {
+                    border-color: $theme-color;
+                    border-bottom-left-radius: .5rem !important;
+                    border-bottom-right-radius: .5rem !important;
+                }
+            }
+
+            .accordion-body {
+                @extend %p-15;
+
+                @include breakpoint(md) {
+                    padding: 30px;
+                }
+            }
+        }
+    }
+
+    &__summery {
+        position: sticky;
+        top: 100px;
+    }
+}
+
+
+.billing-method {
+    &__title {
+        @extend %flex;
+        gap: 10px;
+    }
+
+    &__radio {
+        @extend %p-rel;
+        @include box(20px);
+        border: 1px solid $theme-color;
+        border-radius: 50%;
+
+        &:after {
+            @extend %p-abs;
+            @include box(10px);
+            @include add-prefix(transform, translate(-50%, -50%));
+            background-color: transparent;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+        }
+    }
+}

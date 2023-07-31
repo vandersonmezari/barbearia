@@ -1,0 +1,177 @@
+.client {
+    @extend %of-hidden;
+
+    .section-header {
+
+        h3 {
+            max-inline-size: 38ch;
+        }
+    }
+
+    &__item {
+        background-color: $section-color;
+    }
+
+    &__inner {
+        padding-inline: 30px;
+        padding-block-start: 40px;
+
+        @include breakpoint(md) {
+            padding-inline: 50px;
+            padding-block-start: 40px;
+        }
+
+        @include breakpoint(xxl) {
+            padding-block: 40px;
+        }
+    }
+
+    &__details {
+        @extend %p-rel;
+
+        // &:after {
+        //     @extend %p-abs,
+        //     %h-100,
+        //     %w-100;
+        //     @include add-prefix(transition, all 0.4s cubic-bezier(.79, .14, .15, .86));
+        //     background-color: $primary-color;
+        //     top: 0;
+        // }
+
+        img {
+            @extend %w-100;
+            object-fit: cover;
+            z-index: 1;
+            position: inherit;
+        }
+
+        &:hover {
+            .client__nav {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__info {
+        background-color: $primary-color;
+        border-radius: 20px 0 20px 0;
+        display: inline-block;
+        padding: 20px 36px;
+
+        &-wrap {
+            border-left: 5px solid $theme-color;
+            padding-inline-start: 10px;
+
+            h5 {
+                color: $theme-color;
+            }
+
+            p {
+                @extend %mb-0;
+                color: $white-color;
+            }
+        }
+    }
+
+    &__qoute {
+        padding-block-start: 30px;
+
+        @include breakpoint(lg) {
+            padding-block-start: 90px;
+        }
+
+        blockquote {
+            @extend %p-rel;
+            margin-block: 1.5rem;
+            line-height: 2;
+            @include font-size(18px);
+
+            &::before {
+                @extend %p-abs;
+                @include box(35px);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                @include add-prefix(transition, all 0.4s cubic-bezier(.79, .14, .15, .86));
+                background-image: url(../images/client/qoute.svg);
+                top: -25px;
+                left: -15px;
+                opacity: 0;
+
+                @include breakpoint(md) {
+                    @include box(50px);
+                    top: -45px;
+                    left: -45px;
+                }
+            }
+
+        }
+    }
+
+    &__nav {
+        @include add-prefix(transition, $transition);
+        @include add-prefix(transform, translateX(-50%));
+        display: inline-flex;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        z-index: 1;
+        gap: 15px;
+        opacity: .6;
+    }
+
+    &__slider {
+        .swiper-slide-active {
+            .client__details {
+                &::after {
+                    @include add-prefix(transform, translate3d(-14px, -24px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-4deg) skew(0deg));
+                }
+            }
+
+            .client__qoute {
+                blockquote {
+                    &:before {
+                        opacity: 1;
+                        top: -35px;
+                        left: -15px;
+
+                        @include breakpoint(md) {
+                            top: -50px;
+                            left: -50px;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        &-next,
+        &-prev {
+            @include box(40px);
+            @include add-prefix(transition, $transition);
+            display: inline-grid;
+            place-items: center;
+            border-radius: 10px;
+            box-shadow: 0 0 5px 2px rgba($primary-color, $alpha: .10);
+
+            svg {
+                path {
+                    fill: $white-color;
+                }
+            }
+        }
+
+        &-next {
+            right: 50px;
+            background-color: $primary-color;
+        }
+
+        &-prev {
+            left: 50px;
+            background-color: $primary-color;
+        }
+    }
+
+    &__wrapper {
+        @extend %p-rel;
+    }
+}
